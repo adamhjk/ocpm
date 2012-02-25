@@ -16,9 +16,9 @@ Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "ocpm"
   gem.homepage = "http://github.com/adamhjk/ocpm"
-  gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.license = "Apache 2.0"
+  gem.summary = %Q{Manage a lifecycle of packages through an infrastructure}
+  gem.description = %Q{Opscode Package Management, manages packages through an infrastructure lifecycle}
   gem.email = "adam@opscode.com"
   gem.authors = ["Adam Jacob"]
   # dependencies defined in Gemfile

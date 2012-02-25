@@ -11,4 +11,8 @@ group :development do
   gem "bundler", "~> 1.0.0"
   gem "jeweler", "~> 1.6.4"
   gem "rcov", ">= 0"
+  gem "systemu", ">= 2.4.0"
+  gem "mixlib-log", ">= 1.3.0"
+  gem "mixlib-config", ">= 1.1.2"
+  gem "mixlib-cli", ">= 1.2.2"
 end
