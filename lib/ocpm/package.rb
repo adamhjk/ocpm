@@ -21,7 +21,7 @@ class OCPM
       p.type = :rpm
       p.path = file
       OCPM.command_per_line('rpm -qp --queryformat \'name: %{NAME}\nversion: %{VERSION}\niteration: %{RELEASE}\narch: %{ARCH}\nmaintainer: %{PACKAGER}\ndescription: %{SUMMARY}\nurl: %{URL}\n\' ' + file) do |item|
-        item =~ /^(.+): (.+)$/
+        item =~ /^(.+?): (.+)$/
         p.send("#{$1}=".to_sym, $2)
       end
       p
