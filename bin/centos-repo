@@ -1,0 +1,16 @@
+#!/usr/bin/ruby
+
+$: << File.join(File.dirname(__FILE__), "..", "lib")
+
+require 'ocpm'
+require 'ocpm/repo'
+require 'ocpm/upstream'
+require 'ocpm/upstream/yum'
+require 'ocpm/package'
+require 'ocpm/repo/yum'
+
+repo = OCPM::Repo.new('dev-centos-6.2-x86_64', "/data/centos-6.2-x86_64", :yum)
+upstream = OCPM::Upstream.new("centos-6.2-x86_64", "/data/centos-6.2/6.2/os/x86_64/Packages", :yum)
+
+repo.update(upstream.packages)
+
