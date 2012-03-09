@@ -11,14 +11,14 @@ describe "OCPM" do
     end
 
     it "should raise a RuntimeError on command failure" do
-      lambda { OCPM.command("exit 1") }.should raise_error(RuntimeError)
+      lambda { OCPM.command("bash -c 'exit 1'") }.should raise_error(RuntimeError)
     end
   end
 
   describe "self.command_per_line" do
     it "should yield a block for each line of output" do
       seen = Hash.new
-      OCPM.command_per_line('echo \'one\ntwo\nthree\n\'') do |line|
+      OCPM.command_per_line("cat #{File.join(SPEC_DATA, 'command_per_line')}") do |line|
         seen[line] = true
       end
       seen.has_key?("one").should == true

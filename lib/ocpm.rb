@@ -1,4 +1,4 @@
-require 'systemu'
+require 'mixlib/shellout'
 require 'ocpm/config'
 require 'ocpm/log'
 
@@ -6,7 +6,11 @@ class OCPM
   class << self
     def command(cmd)
       OCPM::Log.debug("Running command: #{cmd}")
-      status, stdout, stderr = systemu(cmd)
+      command = Mixlib::ShellOut.new(cmd)
+      command.run_command
+      status = command.status
+      stdout = command.stdout
+      stderr = command.stderr
       unless status.success?
         OCPM::Log.fatal("Command #{cmd} failed with status code #{status.exitstatus}")
         OCPM::Log.fatal("---STDOUT---")

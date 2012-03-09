@@ -1,3 +1,6 @@
+require 'ocpm/upstream/yum'
+require 'ocpm/upstream/dir'
+
 class OCPM
   class Upstream
     attr_accessor :name, :path, :type

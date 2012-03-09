@@ -11,7 +11,7 @@ class OCPM
       # @return [Array] the paths to each RPM in this repository
       def get_package_files
         packages = []
-        Dir[File.join(@path, "*.rpm")].each do |rpm|
+        ::Dir[File.join(@path, "*.rpm")].each do |rpm|
           packages << File.expand_path(rpm)
         end
         packages
